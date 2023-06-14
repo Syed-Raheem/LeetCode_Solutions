@@ -9,10 +9,6 @@ public:
         }
         
         int c=0,k=0;
-        for(auto i: mp)
-        {
-            cout<<i.first<<" "<<i.second<<"\n";
-        }
         for(auto i : mp)
         {
             if(i.second%2 == 0)
