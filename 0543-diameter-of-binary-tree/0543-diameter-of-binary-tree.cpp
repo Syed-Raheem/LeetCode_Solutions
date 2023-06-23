@@ -33,8 +33,6 @@ public:
         cout<<ma;
         int a=diameterOfBinaryTree(root->left);
         int b=diameterOfBinaryTree(root->right);
-        
-        
         return ma;
         
     }
