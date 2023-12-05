@@ -1,34 +1,41 @@
 class Solution {
 public:
     int countCharacters(vector<string>& words, string chars) {
-        unordered_map<char, int> t;
-        
-        for (char ch : chars) {
-            t[ch]++;
-        }
-
-        int ans = 0;
-        for (string word : words) 
+        map<char,int> one;
+        int ans=0;
+        for(int i=0;i<chars.size();i++)
         {
-            unordered_map<char, int> wordCount;
-            for (char ch : word) 
+            one[chars[i]]++;
+        }
+        for(int i=0;i<words.size();i++)
+        {
+            string temp=words[i];
+            map<char,int> two;
+            for(int j=0;j<temp.size();j++)
             {
-                wordCount[ch]++;
+                two[temp[j]]++;
             }
-            bool validWord = true;
-            for (auto& entry : wordCount) 
+            int flag=0;
+            for(auto it = two.begin();it!=two.end();it++)
             {
-                char ch = entry.first;
-                int count = entry.second;
-                if (t.find(ch) == t.end() || count > t[ch]) 
+                char q=it->first;
+                if(one.find(q)==one.end())
                 {
-                    validWord = false;
+                    flag=1;
                     break;
                 }
+                else
+                {
+                    if(one[q]<it->second)
+                    {
+                        flag=1;
+                        break;
+                    }
+                }
             }
-            if (validWord) 
+            if(flag==0)
             {
-                ans += word.length();
+                ans=ans+temp.size();
             }
         }
         return ans;
