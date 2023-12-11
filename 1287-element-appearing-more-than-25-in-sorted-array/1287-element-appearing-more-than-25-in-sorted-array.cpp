@@ -15,6 +15,10 @@ public:
                 m=it->second;
                 ans=it->first;
             }
+            if((m/arr.size())>=0.25)
+            {
+                break;
+            }
         }
         return ans;
     }
