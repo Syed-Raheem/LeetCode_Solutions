@@ -22,7 +22,6 @@ public:
             if(t!=string::npos)
                 return i;
         }
-        return -1;
-        
+        return -1;    
     }
 };
